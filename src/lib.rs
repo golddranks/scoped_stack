@@ -1,18 +1,20 @@
-#[derive(Clone)]
+#[derive(Clone, Eq, PartialEq)]
 pub struct Stack<'a, T: 'a> {
 	frame: Option<StackFrame<'a, T>>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Eq, PartialEq)]
 struct StackFrame<'a, T: 'a> {
 	parent: &'a Stack<'a, T>,
 	value: T,
 }
 
+#[derive(Clone, Eq, PartialEq)]
 pub struct StackIter<'a, T: 'a> {
 	current: &'a Stack<'a, T>,
 }
 
+#[derive(Clone, Eq, PartialEq)]
 pub struct StackFrameIter<'a, T: 'a> {
 	current: &'a Stack<'a, T>,
 }
